@@ -2,7 +2,7 @@
 #include "default_setting.h"
 #include "finite_stack.h"
 
-finite_stack_p create_finite_stack(int length)
+finite_stack_p create_finite_stack(size_t length)
 {
         finite_stack_p stack = 0;
         stack = (finite_stack_p)malloc(sizeof(struct finite_stack));
@@ -59,20 +59,19 @@ bool finite_stack_full(finite_stack_p stack)
         return stack->size == stack->max_length ? true:false;
 }
 
-int finite_stack_size(finite_stack_p stack)
+size_t finite_stack_size(finite_stack_p stack)
 {
         return stack->size;
 }
 
 void* finite_stack_destory(finite_stack_p stack)
 {
-        int i;
+        unsigned i;
         for(i=0;i<stack->size;++i)
         {
                 free(stack->data[i]);
         }
         free(stack->data);
         free(stack);
-        stack=0;
         return 0;
 }
