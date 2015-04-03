@@ -57,7 +57,7 @@ int main(int argc, char** argv)
                 tmp = (int*)finite_stack_top(stack);
                 assert(*tmp == -1);
                 assert(finite_stack_size(stack)==1);
-                assert(finite_stack_destory(stack)==0);
+                assert(finite_stack_destroy(stack)==0);
         }
         return 0;
 }

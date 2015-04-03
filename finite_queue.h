@@ -38,7 +38,7 @@ bool finite_queue_full(finite_queue_p queue);
 
 bool finite_queue_empty(finite_queue_p queue);
 
-void* finite_queue_destory(finite_queue_p queue);
+void* finite_queue_destroy(finite_queue_p queue);
 
 
 #endif

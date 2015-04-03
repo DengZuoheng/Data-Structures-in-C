@@ -55,7 +55,7 @@ int main(int argc, char** argv)
             assert(1 == finite_queue_size(queue));
             assert(1024 == *(int*)finite_queue_front(queue));
             assert(1024 == *(int*)finite_queue_back(queue));
-            assert(finite_queue_destory(queue) == 0);
+            assert(finite_queue_destroy(queue) == 0);
         
     }
     return 0;

@@ -79,7 +79,7 @@ bool finite_queue_empty(finite_queue_p queue)
         return queue->size==0? true:false;
 }
 
-void* finite_queue_destory(finite_queue_p queue)
+void* finite_queue_destroy(finite_queue_p queue)
 {
         size_t begin=queue->front;
         while(begin != queue->back)

@@ -64,7 +64,7 @@ size_t finite_stack_size(finite_stack_p stack)
         return stack->size;
 }
 
-void* finite_stack_destory(finite_stack_p stack)
+void* finite_stack_destroy(finite_stack_p stack)
 {
         unsigned i;
         for(i=0;i<stack->size;++i)

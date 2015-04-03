@@ -31,6 +31,6 @@ bool finite_stack_full(finite_stack_p stack);
 /*Get the size of the stack. */
 size_t finite_stack_size(finite_stack_p stack);
 /*Destory the stack and free all the memory associated with it. */
-void* finite_stack_destory(finite_stack_p stack);
+void* finite_stack_destroy(finite_stack_p stack);
 
 #endif
