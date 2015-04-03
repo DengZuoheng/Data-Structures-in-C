@@ -1,6 +1,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 #include "default_setting.h"
 #include "list.h"
 
@@ -28,6 +29,21 @@ list_iter_p list_iter_rbegin(list_p list)
         list_iter_p iter = (list_iter_p)malloc(sizeof(struct list_iter));
         iter->current = list->tail;
         return iter;
+}
+
+bool list_iter_end(list_iter_p iter)
+{
+        if (iter&&!iter->current) return true;
+        return false;
+}
+
+bool list_iter_rend(list_iter_p iter)
+{
+        if (iter&&iter->current&&iter->current->prev == NULL)
+        {
+                return true;
+        }
+        return false;
 }
 
 void list_push_back(list_p list, void* data, size_t size)
@@ -100,7 +116,8 @@ void list_insert(list_p list, list_iter_p iter, void* data, size_t size)
 {
         if(list_iter_has_next(iter)==false)
         {
-            return list_push_back(list,data,size);
+            list_push_back(list,data,size);
+            return;
         }
 
         lnode_p node = (lnode_p)malloc(sizeof(struct linked_node));
@@ -189,18 +206,12 @@ bool list_iter_has_prev(list_iter_p iter)
 
 void list_iter_next(list_iter_p iter)
 {
-        if(list_iter_has_next(iter)==true)
-        {
-                iter->current = iter->current->next;
-        }
+        iter->current = iter->current->next;
 }
 
 void list_iter_prev(list_iter_p iter)
 {
-        if(list_iter_has_prev(iter)==true)
-        {
-                iter->current = iter->current->prev;
-        }
+        iter->current = iter->current->prev;
 }
 
 void* list_front(list_p list)
@@ -246,10 +257,12 @@ void* list_destroy(list_p list)
         return NULL;
 }
 
-void list_sort(list_p list)
+void* list_iter_destroy(list_iter_p iter)
 {
-    //TODO
+        free(iter);
+        return NULL;
 }
+
 
 list_p list_merge(list_p list1, list_p list2)
 {
@@ -263,11 +276,12 @@ list_p list_merge(list_p list1, list_p list2)
 void list_merge_to(list_p listd, list_p lists)
 {
         list_iter_p iter = list_iter_begin(lists);
-        while(list_iter_has_next(iter))
+        while(list_iter_end(iter)==false)
         {
                 list_push_back(listd,
                     iter->current->data,
                     iter->current->size);
                 list_iter_next(iter);
         }
+        iter = list_iter_destroy(iter);
 }
