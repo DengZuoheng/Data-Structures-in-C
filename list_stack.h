@@ -10,6 +10,8 @@ struct list_stack
 
 typedef struct list_stack* list_stack_p;
 
+list_stack_p create_list_stack();
+
 bool list_stack_push(list_stack_p stack, void* data, size_t n);
 
 bool list_stack_pop(list_stack_p stack);

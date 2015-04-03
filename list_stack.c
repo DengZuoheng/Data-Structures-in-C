@@ -1,6 +1,14 @@
+#include <stdlib.h>
 #include "list_stack.h"
 #include "default_setting.h"
 #include "list.h"
+
+list_stack_p create_list_stack()
+{
+        list_stack_p stack = (list_stack_p)malloc(sizeof(struct list_stack));
+        stack->list = create_list();
+        return stack;
+}
 
 bool list_stack_push(list_stack_p stack, void* data, size_t n)
 {
