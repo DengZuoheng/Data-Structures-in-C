@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "default_setting.h"
+#include "list.h"
 #include "list_queue.h"
 
 list_queue_p create_list_queue()

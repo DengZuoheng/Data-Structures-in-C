@@ -1,7 +1,9 @@
 #ifndef LIST_QUEUE_H
 #define LIST_QUEUE_H
 
+#include <stdlib.h>
 #include "default_setting.h"
+#include "list.h"
 
 struct list_queue
 {

@@ -1,11 +1,13 @@
 #ifndef LIST_STACK_H
 #define LIST_STACK_H
+
+#include <stdlib.h>
 #include "list.h"
 #include "default_setting.h"
 
 struct list_stack
 {
-    list_p list;
+        list_p list;
 };
 
 typedef struct list_stack* list_stack_p;

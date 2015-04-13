@@ -19,6 +19,7 @@ bool list_stack_push(list_stack_p stack, void* data, size_t n)
 bool list_stack_pop(list_stack_p stack)
 {
         list_pop_back(stack->list);
+        return true;
 }
 /*Get the top item of the stack. */
 void* list_stack_top(list_stack_p stack)
