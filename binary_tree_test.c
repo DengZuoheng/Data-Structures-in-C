@@ -10,10 +10,10 @@ void callback(void* data)
 
 int main()
 {
-    
         btree_node_p arr[16];
+        
         int i=0;
-        for(i=0;i<16;i++)
+        for(i=0;i<15;i++)
         {
             arr[i]=create_btree_node(&i,sizeof(int));
         }
@@ -49,5 +49,6 @@ int main()
         printf("%d\n", binary_depth(arr[1]));
         printf("%d\n", binary_depth(arr[3]));
         printf("%d\n", binary_depth(arr[7]));
+        binary_destroy(arr[0]);
         return 0;
 }

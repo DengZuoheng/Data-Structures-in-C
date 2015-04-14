@@ -45,4 +45,6 @@ void binary_level(binary_tree_p tree, void(*callback)(void*));
 
 size_t binary_depth(binary_tree_p tree);
 
+void binary_destroy(binary_tree_p tree);
+
 #endif

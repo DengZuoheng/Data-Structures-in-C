@@ -126,6 +126,7 @@ void binary_iter_preorder(binary_tree_p tree, void (*callback)(void*))
                                 sizeof(struct btree_node));
                 }  
         }
+        free(node);
         list_stack_destroy(stack);
 }
 
@@ -166,6 +167,9 @@ void binary_iter_postorder(binary_tree_p tree, void (*callback)(void*))
                         }
                 }
         }
+        free(cur);
+        free(pre);
+        list_stack_destroy(stack);
 }
 
 void binary_level(binary_tree_p tree, void(*callback)(void*))
@@ -205,4 +209,22 @@ size_t binary_depth(binary_tree_p tree)
     return 1+max( 
             binary_depth(tree->left_child), 
             binary_depth(tree->right_child));  
+}
+
+void binary_destroy(binary_tree_p tree)
+{
+    if (!tree)
+    { 
+        return; 
+    }
+    if (tree->left_child)
+    {
+        binary_destroy(tree->left_child);
+    }
+    if (tree->right_child)
+    {
+        binary_destroy(tree->right_child);
+    }
+    free(tree->data);
+    free(tree);
 }
