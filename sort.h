@@ -10,5 +10,8 @@ size_t _quick_sort_partition(void* base, size_t num, size_t size,
 void shell_sort(void* base, size_t num, size_t size,
             int (*compar)(const void*,const void*));   
 
+void heap_sort(void* base, size_t num, size_t size,
+            int (*compar)(const void*,const void*));
+
 
 #endif
