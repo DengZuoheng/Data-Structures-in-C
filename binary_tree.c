@@ -109,7 +109,6 @@ void binary_iter_preorder(binary_tree_p tree, void (*callback)(void*))
         list_stack_push(stack, node, sizeof(struct btree_node));
         while(false==list_stack_empty(stack))
         {
-                node = 
                 memcpy(node, list_stack_top(stack), sizeof(struct btree_node));
                 list_stack_pop(stack);
                 callback(node->data);
